@@ -2,7 +2,7 @@
 
 namespace Sprache
 {
-    internal static class ResultHelper
+    public static class ResultHelper
     {
         public static IResult<U> IfSuccess<T, U>(this IResult<T> result, Func<IResult<T>, IResult<U>> next)
         {

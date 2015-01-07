@@ -79,9 +79,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Sprache\Sprache.csproj">
+    <ProjectReference Include="..\Sprache\CGenT.Sprache.csproj">
       <Project>{82cc8cf8-b770-4756-850a-95dd14dd312f}</Project>
-      <Name>Sprache</Name>
+      <Name>CGenT.Sprache</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

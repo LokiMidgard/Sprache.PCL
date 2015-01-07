@@ -1,7 +1,15 @@
 ﻿using System.Reflection;
+using System.Resources;
 using System.Runtime.CompilerServices;
 
-[assembly: AssemblyTitle("Sprache Tiny C# Parser Combinators")]
-[assembly: AssemblyProduct("Sprache")]
+[assembly: AssemblyTitle("CGenT.Sprache")]
+[assembly: AssemblyDescription("Sprache Tiny C# Parser Combinators")]
+[assembly: AssemblyConfiguration("")]
+
+[assembly: AssemblyProduct("CGenT.Sprache")]
 [assembly: AssemblyCopyright("Copyright © Nicholas Blumhardt 2010")]
-[assembly: InternalsVisibleTo("Sprache.Tests")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+[assembly: NeutralResourcesLanguage("en")]
+
+[assembly: AssemblyVersion("1.0.*")]

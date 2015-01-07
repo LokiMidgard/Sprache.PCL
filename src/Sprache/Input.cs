@@ -24,7 +24,7 @@ namespace Sprache
         {
         }
 
-        internal Input(string source, int position, int line = 1, int column = 1)
+        public Input(string source, int position, int line = 1, int column = 1)
         {
             _source = source;
             _position = position;

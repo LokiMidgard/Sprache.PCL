@@ -35,7 +35,7 @@ namespace Sprache
         }
     }
 
-    internal class Result<T> : IResult<T>
+    public class Result<T> : IResult<T>
     {
         private readonly T _value;
         private readonly IInput _remainder;
