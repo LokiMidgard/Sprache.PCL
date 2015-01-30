@@ -36,12 +36,12 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>CGenT.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
-    <None Include="CGenT.pfx" />
     <None Include="CGenT.Sprache.nuspec" />
+    <None Include="Key.snk" />
     <None Include="_PackNPush.bat" />
   </ItemGroup>
   <ItemGroup>
