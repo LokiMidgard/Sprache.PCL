@@ -1,25 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?>
-<package>
-	<metadata>
-		<id>CGenT.Sprache</id>
-		<version>0.1.1</version>
-		<title>CGenT.Sprache (Portable)</title>
-		<authors>Nicholas Blumhardt and Contributors</authors>
-		<owners>Nicholas Blumhardt, Mike Hadlow</owners>
-		<licenseUrl>https://github.com/sprache/Sprache/blob/master/licence.txt</licenseUrl>
-		<projectUrl>https://github.com/CGenT/Sprache.PCL</projectUrl>
-		<requireLicenseAcceptance>false</requireLicenseAcceptance>
-		<summary>
-			Tiny C# Monadic Parser Framework.
-		</summary>
-		<description>
-			A strongly-named and re-targetted (but otherwise unchanged) packaging of Sprache at https://github.com/sprache/Sprache.
-		</description>
-		<releaseNotes>
-		</releaseNotes>
-		<copyright>Copyright Sprache Contributors 2013</copyright>
-		<tags>CGenT Sprache</tags>
-		<dependencies>
-		</dependencies>
-	</metadata>
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>CGenT.Sprache</id>
+    <version>$version$</version>
+	  <title>CGenT.Sprache (Portable)</title>
+	  <authors>Nicholas Blumhardt and Contributors</authors>
+	  <owners>Nicholas Blumhardt, Mike Hadlow</owners>
+	  <licenseUrl>https://github.com/sprache/Sprache/blob/master/licence.txt</licenseUrl>
+	  <projectUrl>https://github.com/CGenT/Sprache.PCL</projectUrl>
+	  <requireLicenseAcceptance>false</requireLicenseAcceptance>
+	  <summary>
+		  Tiny C# Monadic Parser Framework.
+	  </summary>
+	  <description>
+		  A strongly-named and re-targetted (but otherwise unchanged) packaging of Sprache at https://github.com/sprache/Sprache.
+	  </description>
+	  <releaseNotes>
+	  </releaseNotes>
+	  <copyright>Copyright Sprache Contributors 2013</copyright>
+	  <tags>CGenT Sprache</tags>
+	  <dependencies>
+	  </dependencies>
+  </metadata>
 </package>
