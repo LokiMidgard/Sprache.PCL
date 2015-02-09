@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>CGenT.Sprache</id>
-    <version>$version$</version>
+    <version>$version$.$build$</version>
 	  <title>CGenT.Sprache (Portable)</title>
 	  <authors>Nicholas Blumhardt and Contributors</authors>
 	  <owners>Nicholas Blumhardt, Mike Hadlow</owners>
