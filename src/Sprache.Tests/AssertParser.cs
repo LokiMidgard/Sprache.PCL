@@ -29,16 +29,16 @@ namespace Sprache.Tests
         public static void SucceedsWith<T>(Parser<T> parser, string input, Action<T> resultAssertion)
         {
             parser.TryParse(input)
-				.IfFailure(f =>
-				{
-					Assert.Fail("Parsing of \"{0}\" failed unexpectedly. {1}", input, f);
-					return f;
-				})
-				.IfSuccess(s =>
-				{
-					resultAssertion(s.Value);
-					return s;
-				});
+                .IfFailure(f =>
+                {
+                    Assert.Fail("Parsing of \"{0}\" failed unexpectedly. {1}", input, f);
+                    return f;
+                })
+                .IfSuccess(s =>
+                {
+                    resultAssertion(s.Value);
+                    return s;
+                });
         }
 
         public static void Fails<T>(Parser<T> parser, string input)
@@ -54,16 +54,16 @@ namespace Sprache.Tests
         public static void FailsWith<T>(Parser<T> parser, string input, Action<IResult<T>> resultAssertion)
         {
             parser.TryParse(input)
-				.IfSuccess(s =>
-				{
-					Assert.Fail("Expected failure but succeeded with {0}.", s.Value);
-					return s;
-				})
-				.IfFailure(f =>
-				{
-					resultAssertion(f);
-					return f;
-				});
+                .IfSuccess(s =>
+                {
+                    Assert.Fail("Expected failure but succeeded with {0}.", s.Value);
+                    return s;
+                })
+                .IfFailure(f =>
+                {
+                    resultAssertion(f);
+                    return f;
+                });
         }
     }
 }

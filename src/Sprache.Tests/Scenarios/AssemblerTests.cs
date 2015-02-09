@@ -23,8 +23,7 @@ namespace Sprache.Tests.Scenarios
             from operands in AsmToken(Identifier).XDelimitedBy(Parse.Char(','))
             select Tuple.Create(instructionName, operands.ToArray());
 
-        public static Parser<string> Comment =
-            AsmToken(Parse.EndOfLineComment(";"));
+        public static CommentParser Comment = new CommentParser() { Single = ";" };
 
         public static Parser<string> LabelId =
             Parse.Identifier(Parse.Letter.Or(Parse.Chars("._?")), Parse.LetterOrDigit.Or(Parse.Chars("_@#$~.?")));
@@ -37,7 +36,7 @@ namespace Sprache.Tests.Scenarios
         public static readonly Parser<IEnumerable<AssemblerLine>> Assembler = (
             from label in Label.Optional()
             from instruction in Instruction.Optional()
-            from comment in Comment.Optional()
+            from comment in AsmToken(Comment.SingleLineComment).Optional()
             from lineTerminator in Parse.LineTerminator
             select new AssemblerLine(
                 label.GetOrDefault(),
@@ -108,20 +107,20 @@ namespace Sprache.Tests.Scenarios
         }
 
         [Test]
-        public void CanParseSeceralLines()
+        public void CanParseSeveralLines()
         {
-            AssertParser.SucceedsWith(AssemblerParser.Assembler,
-                @"      ;multiline sample
-                        label:  
-                        mov   a  ,  b;",
-                lines => CollectionAssert.AreEqual(
-                    new[]
-                    {
-                        new AssemblerLine(null, null, null, "multiline sample"),
-                        new AssemblerLine("label", null, null, null),
-                        new AssemblerLine(null, "mov", new[] {"a", "b"}, "")
-                    },
-                    lines));
+	        AssertParser.SucceedsWith(AssemblerParser.Assembler,
+		        "              ;multiline sample\n" +
+		        "      label:                   \n" +
+		        "             mov   a,b ;",
+		        lines => CollectionAssert.AreEqual(
+			        new[]
+			        {
+				        new AssemblerLine(null, null, null, "multiline sample"),
+				        new AssemblerLine("label", null, null, null),
+				        new AssemblerLine(null, "mov", new[] {"a", "b"}, "")
+			        },
+			        lines));
         }
     }
 
@@ -142,7 +141,10 @@ namespace Sprache.Tests.Scenarios
 
         protected bool Equals(AssemblerLine other)
         {
-            return ToString() == other.ToString();
+	        var x = this.ToString();
+	        var y = other.ToString();
+	        var result = x == y;
+	        return result;
         }
 
         public override bool Equals(object obj)
@@ -150,7 +152,7 @@ namespace Sprache.Tests.Scenarios
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != this.GetType()) return false;
-            return Equals((AssemblerLine) obj);
+            return Equals((AssemblerLine)obj);
         }
 
         public override int GetHashCode()
@@ -158,9 +160,9 @@ namespace Sprache.Tests.Scenarios
             unchecked
             {
                 var hashCode = (Label != null ? Label.GetHashCode() : 0);
-                hashCode = (hashCode*397) ^ (InstructionName != null ? InstructionName.GetHashCode() : 0);
-                hashCode = (hashCode*397) ^ (Operands != null ? Operands.GetHashCode() : 0);
-                hashCode = (hashCode*397) ^ (Comment != null ? Comment.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ (InstructionName != null ? InstructionName.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ (Operands != null ? Operands.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ (Comment != null ? Comment.GetHashCode() : 0);
                 return hashCode;
             }
         }

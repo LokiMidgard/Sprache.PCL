@@ -45,6 +45,8 @@
     <None Include="_PackNPush.bat" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommentParser.cs" />
+    <Compile Include="IComment.cs" />
     <Compile Include="IInput.cs" />
     <Compile Include="Input.cs" />
     <Compile Include="IPositionAware.cs" />
