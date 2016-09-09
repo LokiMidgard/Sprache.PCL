@@ -1,4 +1,4 @@
-﻿REM
+rem
     @echo off
 	set _fault=0
 
