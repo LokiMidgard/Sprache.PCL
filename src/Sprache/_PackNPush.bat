@@ -1,4 +1,4 @@
-﻿rem
+﻿REM
     @echo off
 	set _fault=0
 
@@ -22,7 +22,7 @@
 
 	rem ---------- pack ----------
     echo Packing %1 ...
-	..\.nuget\nuget.exe pack %1 -IncludeReferencedProjects
+	..\.nuget\nuget.exe pack %1 -IncludeReferencedProjects -Prop Configuration=Release
 
 	call :check_count *.nupkg 1 error_pack
 	if %_fault% NEQ 0 goto :end
